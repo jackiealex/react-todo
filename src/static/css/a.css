@@ -1,7 +1,7 @@
+/*a*/
 body {
-	background: red
-}
-
-:local (.hellow) {
-	background: blue;
+	background: red;
+	animation: 1s all linear;
+	column-count: 12;
+	border-radius: 3px;
 }

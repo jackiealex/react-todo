@@ -1,4 +1,5 @@
 var webpack = require('webpack');
+var autoprefixer = require('autoprefixer');
 
 var _OUTPUT_ = 'build';
 
@@ -20,9 +21,18 @@ module.exports = {
     module: {
         loaders: [{
             test: /\.js$/,
-            loaders: ['babel-loader', 'jsx'],
+            loaders: ['babel', 'jsx'],
             exclude: /node_modules/
+        }, {
+            test: /\.css$/,
+            loaders: ['style', 'css', 'postcss']
+        }, {
+            test: /\.styl$/,
+            loader: 'style!css!stylus!postcss'
         }]
+    },
+    postcss: function () {
+        return [autoprefixer];
     },
     plugins: [
         // new webpack.HotModuleReplacementPlugin(),
